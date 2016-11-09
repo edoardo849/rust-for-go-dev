@@ -16,8 +16,6 @@ The materials for this presentation are available on GitHub:
 
 .link https://github.com/edoardo849/rust-for-go-dev
 
-
-
 You are encouraged to remix, transform, or build upon the material, providing you give appropriate credit.
 
 * Go Rust
@@ -32,7 +30,7 @@ Rust has zero-cost abstractions and no runtime, trading-off simplicity. Built fo
 
 * Funny Fact
 
-They both states what the other thinks is a strength is a weakness.
+Rust Strength = ! Go Strength
 
 Rob Pike thinks that having the original creators in the team will help the PL to stay stable and coherent
 
@@ -56,6 +54,7 @@ Steve Klabnik thinks that not having the original creator in the team will help 
 - All the checks are done at compile-time
 - Online Playground (slower than go's but still...)
 - Doesn't allow simultaneus aliasing and mutation
+- Stack and Heap allocation is predictable
 
 * Hello
 
@@ -101,8 +100,20 @@ Ownership and borrowing doesn't require a runtime, has memory safety and no data
 
 .code code/rust/ownership.rs
 
+* Borrowing
+
+.code code/rust/borrowing.rs
+
 * Concurrency
 Not in the standard library. Concurrency tries to avoid data race, or when 2 unsyncronized threads accessing same data where at least one writes. This is also deifned as undefined behaviour.
 
 Aliasing + Mutation + Unsyncronized = Data race
 
+* Conclusions
+
+- Rust is very fast (doesn't beat C++ though).
+- Small but enthusiastic community, not a lot of libraries... yet
+- Advocated as an OS language candidate
+- Not employable... yet.
+
+Hey, what about that Swift guy?
