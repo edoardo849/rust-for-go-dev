@@ -1,7 +1,7 @@
 
 Rust for Go Developers
 Manchester
-19 Oct 2016
+09 Nov 2016
 
 Edo Scalafiotti
 edoardo849@gmail.com
@@ -14,17 +14,95 @@ This presentation is licensed under the [[https://creativecommons.org/licenses/b
 
 The materials for this presentation are available on GitHub:
 
-.link https://github.com/edoardo849/high-performance-microservices
+.link https://github.com/edoardo849/rust-for-go-dev
 
-An extended version is available on Medium:
 
-.link https://goo.gl/xvqRXo
 
 You are encouraged to remix, transform, or build upon the material, providing you give appropriate credit.
 
-* Productivity augmentation strategies
-- work faster
-- put more workers
-- efficient management
+* Go Rust
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
 
-* "Are we actually doing it right?"
+Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
+
+* TL;DR version
+Go has an elegant, opinionated, minimalistic approach. Built for Google's servers.
+
+Rust has zero-cost abstractions and no runtime, trading-off simplicity. Built for Firefox's Servo
+
+* Funny Fact
+
+They both states what the other thinks is a strength is a weakness.
+
+Rob Pike thinks that having the original creators in the team will help the PL to stay stable and coherent
+
+Steve Klabnik thinks that not having the original creator in the team will help the PL to be more flexible
+
+* Rust specs
+
+- No garbage collector
+- Original compiler built in OCaml, now in Rust
+- Defined as a "technology from the pas that comes to save the future from itself"
+- Might have OO depending on the definition of OO
+- Strong Ruby influence with a pinch of JavaScript and a secret passion for Go
+
+* The good
+
+- Great documentation
+- Inclusive community
+- Great documentation
+- Cargo Package Manager
+- Great Documentation
+- All the checks are done at compile-time
+- Online Playground (slower than go's but still...)
+- Doesn't allow simultaneus aliasing and mutation
+
+* Hello
+
+Hello Rust
+.code code/rust/hello.rs
+
+Hello Go
+.play code/go/hello.go /^func main/,/}/
+
+* The bad
+
+- From a purely Go perspective, Rust looks less elegant
+- Learning Curve for some advanced concepts - variable position in memory, stack vs heap
+- Ownership
+- Mutables
+- Borrowing
+- Concecpt of macros
+
+* Mutables
+Rust:
+.code code/rust/mutable.rs
+Go:
+.code code/go/hello.go /^func mutable/,/}/
+
+* The ugly
+
+- Rules and exceptions
+- Variables are immutable unless specified
+- Lifetime or variables
+- Very JavaScript-ish in some syntax AND semicolons
+
+.code code/rust/ugly.rs
+
+
+* Ownership
+Ownership is how Rust achieves its largest goal: memory safety.
+
+Rust has a focus on safety and speed: all of the analysis are done *at compile time*, not at runtime. However, this comes at the cost of leraning curve.
+
+Ownership and borrowing doesn't require a runtime, has memory safety and no data race.
+
+* Example
+
+.code code/rust/ownership.rs
+
+* Concurrency
+Not in the standard library. Concurrency tries to avoid data race, or when 2 unsyncronized threads accessing same data where at least one writes. This is also deifned as undefined behaviour.
+
+Aliasing + Mutation + Unsyncronized = Data race
+
